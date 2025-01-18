@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8782501422346940640}
   - component: {fileID: 5914503594561108708}
-  - component: {fileID: 1197311329610466108}
   - component: {fileID: 1065241620920472931}
+  - component: {fileID: 4044063751156906407}
   m_Layer: 0
   m_Name: BoardPiece
   m_TagString: Untagged
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0, g: 0.9748764, b: 1, a: 1}
   m_FlipX: 0
@@ -89,27 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &1197311329610466108
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7351935831052188386}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 1
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 16
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.3992839, y: 1.2543565, z: 0.2}
-  m_Center: {x: 0, y: 0.06189502, z: 0}
 --- !u!114 &1065241620920472931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,3 +101,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c855d2055ee3943a687988c32d06d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!135 &4044063751156906407
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7351935831052188386}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.62
+  m_Center: {x: 0, y: 0.06, z: 0}

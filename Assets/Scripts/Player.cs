@@ -26,27 +26,41 @@ public class Player : MonoBehaviour
         return Physics.RaycastAll(ray, 999999, mask, QueryTriggerInteraction.Ignore);
     }
 
+    void GrabBoardPiece()
+    {
+        foreach (RaycastHit hit in GetGameObjectAtPosition())
+        {
+            BoardPiece DetectedBoardPiece;
+            if (hit.transform.gameObject.TryGetComponent<BoardPiece>(out DetectedBoardPiece))
+            {
+                HeldBoardPiece = DetectedBoardPiece;
+                DragOffset = HeldBoardPiece.transform.position - GetMousePosition();
+
+                HeldBoardPiece.GetComponent<SpriteRenderer>().sortingOrder = 10;
+            }
+        }
+    }
+
     public void OnMouseAction(InputAction.CallbackContext context)
     {
         if (context.ReadValueAsButton())
         {
-            foreach (RaycastHit hit in GetGameObjectAtPosition())
-            {
-                BoardPiece DetectedBoardPiece;
-                if (hit.transform.gameObject.TryGetComponent<BoardPiece>(out DetectedBoardPiece))
-                {
-                    HeldBoardPiece = DetectedBoardPiece;
-                    DragOffset = HeldBoardPiece.transform.position - GetMousePosition();
-
-                    HeldBoardPiece.GetComponent<SpriteRenderer>().sortingOrder = 10;
-                }
-            }
+            GrabBoardPiece();
 
             return;
         }
 
-        HeldBoardPiece.GetComponent<SpriteRenderer>().sortingOrder = 1;
-        HeldBoardPiece = null;
+        if (HeldBoardPiece)
+        {
+            if (HoveredBoardSlot)
+            {
+                HeldBoardPiece.transform.position = HoveredBoardSlot.SlotPosition.position;
+                Debug.Log("SLOTTED");
+            }
+
+            HeldBoardPiece.GetComponent<SpriteRenderer>().sortingOrder = 1;
+            HeldBoardPiece = null;
+        }
     }
 
     Vector3 GetMousePosition()
@@ -57,8 +71,27 @@ public class Player : MonoBehaviour
         return mousePosition;
     }
 
+    void DetectSlot()
+    {
+        BoardSlot DetectedSlot = null;
+
+        foreach (RaycastHit hit in GetGameObjectAtPosition())
+        {
+            if (hit.transform.gameObject.TryGetComponent(out BoardSlot tempSlot))
+            {
+                DetectedSlot = hit.transform.gameObject.GetComponent<BoardSlot>();
+            }
+        }
+
+        HoveredBoardSlot = DetectedSlot;
+
+        Debug.Log(HoveredBoardSlot);
+    }
+
     void Update()
     {
+        DetectSlot();
+
         if (HeldBoardPiece)
         {
             HeldBoardPiece.transform.position = GetMousePosition() + DragOffset;
