@@ -78,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0, g: 0.9748764, b: 1, a: 1}
+  m_Sprite: {fileID: 3422920520011319298, guid: 89851649ddf125f42908720a402230f5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21c855d2055ee3943a687988c32d06d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  side: 0
 --- !u!135 &4044063751156906407
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -120,5 +121,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.62
+  m_Radius: 1.73
   m_Center: {x: 0, y: 0.06, z: 0}

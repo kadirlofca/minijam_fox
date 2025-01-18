@@ -4,6 +4,9 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    [SerializeField]
+    public Texture2D cursorTexture;
+
     public BoardPiece HeldBoardPiece;
     public BoardSlot HoveredBoardSlot;
     public static Player Instance;
@@ -17,6 +20,8 @@ public class Player : MonoBehaviour
         }
 
         Instance = this;
+
+        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
     RaycastHit[] GetGameObjectAtPosition()
