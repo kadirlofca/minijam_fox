@@ -11,11 +11,14 @@ public class BoardSlot : MonoBehaviour
 
     void OnMouseEnter()
     {
-        Player.Instance.CurrentlyHoveredBoardSlot = this;
+        Player.Instance.HoveredBoardSlot = this;
+
+        GetComponent<SpriteHighlight>().HighlightActive = true;
     }
 
     void OnMouseExit()
     {
-        Player.Instance.CurrentlyHoveredBoardSlot = null;
+        Player.Instance.HoveredBoardSlot = null;
+        GetComponent<SpriteHighlight>().HighlightActive = false;
     }
 }
