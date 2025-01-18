@@ -19,12 +19,15 @@ public class ImprovedButton : MonoBehaviour, IPointerClickHandler, IPointerEnter
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (!button.interactable) return;
+        
         Cursor.SetCursor(MouseCursors.Instance.DefaultMouseTexture, Vector2.zero, CursorMode.Auto);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Cursor.SetCursor(MouseCursors.Instance.ClickMouseTexture, Vector2.zero, CursorMode.Auto);
+        Texture2D mouseCursor = button.interactable ? MouseCursors.Instance.ClickMouseTexture : MouseCursors.Instance.CrossMouseTexture;
+        Cursor.SetCursor(mouseCursor, Vector2.zero, CursorMode.Auto);
     }
 
     public void OnPointerExit(PointerEventData eventData)
