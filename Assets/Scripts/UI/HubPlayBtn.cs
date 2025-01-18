@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HubPlayBtn : MonoBehaviour
@@ -27,7 +28,7 @@ public class HubPlayBtn : MonoBehaviour
 
     public void LoadLevel()
     {
-        Application.LoadLevel(levelIndex);
+       SceneManager.LoadScene(levelIndex);
     }
     
     private void EnableButton()
