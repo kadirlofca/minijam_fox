@@ -52,10 +52,9 @@ public class Player : MonoBehaviour
 
         if (HeldBoardPiece)
         {
-            if (HoveredBoardSlot)
+            if (HoveredBoardSlot && HoveredBoardSlot.BoardSide == HeldBoardPiece.side)
             {
                 HeldBoardPiece.transform.position = HoveredBoardSlot.SlotPosition.position;
-                Debug.Log("SLOTTED");
             }
 
             HeldBoardPiece.GetComponent<SpriteRenderer>().sortingOrder = 1;
@@ -84,8 +83,6 @@ public class Player : MonoBehaviour
         }
 
         HoveredBoardSlot = DetectedSlot;
-
-        Debug.Log(HoveredBoardSlot);
     }
 
     void Update()
