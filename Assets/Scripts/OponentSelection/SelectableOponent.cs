@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SelectableOponent : MonoBehaviour
 {
-    [SerializeField] private int oponentID;  
+    [SerializeField] OponentInfoSO oponentInfo;  
     [Space(10)] 
     [SerializeField] Color hoverColor;
     [SerializeField] Color defaultColor;
@@ -35,7 +35,7 @@ public class SelectableOponent : MonoBehaviour
     {
         if (_isSelected) return;
         
-        sceneData.SelectedOponent = oponentID;
+        sceneData.SelectedOponent = oponentInfo.ID;
         _canDisableColor = false;
         _isSelected = true;
         

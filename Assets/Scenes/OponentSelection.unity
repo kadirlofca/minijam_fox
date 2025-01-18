@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 50172363}
   - component: {fileID: 50172367}
   - component: {fileID: 50172368}
+  - component: {fileID: 50172369}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -251,7 +252,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655b94d4937f0027f91a150e69d0c6c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hubPlayBtn: {fileID: 1268657793}
+--- !u!114 &50172369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 50172362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9176f3ca21f8b64458cd1b7da3061d74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wonAgainstText: {fileID: 1677696615}
+  wonAgainstSO: {fileID: 11400000, guid: 1ea20a0cece9926258a57ab9086d7cc7, type: 2}
 --- !u!1001 &242734627
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -264,6 +278,10 @@ PrefabInstance:
       propertyPath: oponentID
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1867661379043324761, guid: f608ad93133664a9aa157d5a0391e79b, type: 3}
+      propertyPath: oponentInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 1f6ae6bf4d52d0b2c88dac0dba94ec09, type: 2}
     - target: {fileID: 2924481231041032966, guid: f608ad93133664a9aa157d5a0391e79b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.753
@@ -688,7 +706,7 @@ GameObject:
   - component: {fileID: 1677696616}
   - component: {fileID: 1677696615}
   m_Layer: 5
-  m_Name: WonAgainst
+  m_Name: WonAgainstText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -912,6 +930,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1867661379043324761, guid: f608ad93133664a9aa157d5a0391e79b, type: 3}
+      propertyPath: oponentInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 22b801367633e35768a330760c8d2a0e, type: 2}
     - target: {fileID: 2924481231041032966, guid: f608ad93133664a9aa157d5a0391e79b, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.9879769
