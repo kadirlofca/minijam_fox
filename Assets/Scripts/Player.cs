@@ -60,6 +60,20 @@ public class Player : MonoBehaviour
             if (HoveredBoardSlot && HoveredBoardSlot.BoardSide == HeldBoardPiece.side)
             {
                 HeldBoardPiece.transform.position = HoveredBoardSlot.SlotPosition.position;
+                HeldBoardPiece.currentSlot = HoveredBoardSlot;
+
+                if (HeldBoardPiece.side)
+                {
+                    BoardState.Instance.OpponentBoardProgress = HoveredBoardSlot.ProgressValue;
+                }
+                else
+                {
+                    BoardState.Instance.AllyBoardProgress = HoveredBoardSlot.ProgressValue;
+                }
+            }
+            else
+            {
+                HeldBoardPiece.transform.position = HeldBoardPiece.currentSlot.SlotPosition.position;
             }
 
             HeldBoardPiece.GetComponent<SpriteRenderer>().sortingOrder = 1;

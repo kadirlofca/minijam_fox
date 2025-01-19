@@ -6,4 +6,14 @@ public class BoardState : MonoBehaviour
 
     public int AllyBoardProgress = 0;
     public int OpponentBoardProgress = 0;
+
+    void Awake()
+    {
+        if (Instance)
+        {
+            return;
+        }
+
+        Instance = this;
+    }
 }
