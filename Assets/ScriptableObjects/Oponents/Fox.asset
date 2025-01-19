@@ -10,10 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 81f71b1cdea46af2fa27b8df5b199e87, type: 3}
-  m_Name: OponentA
+  m_Name: Fox
   m_EditorClassIdentifier: 
   ID: c7124a21-8332-43d8-ace1-712d3df77568
-  OponentName: Mouse
-  OponentSprite: {fileID: 0}
+  HasPlayedAgainstPlayer: 0
+  OponentName: Fox
+  BehaviorDuration: 10
+  Idle: {fileID: 4723107735738678597, guid: d3bbd02952a3f7240bbeb3bad30a4971, type: 3}
+  Distracted: {fileID: -3897114461166940061, guid: b265e64fad7f8934c9fa7ac307f207f5, type: 3}
+  Suspicious: {fileID: 8998112352109675948, guid: 6c9b051aff0f4f94291129d167a0290f, type: 3}
+  Confrontational: {fileID: 621222158458474870, guid: f698effdf150ef7449379daa90de0966, type: 3}
   PlayerWinChance: 20
   OponentWinChance: 25
