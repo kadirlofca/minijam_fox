@@ -35,7 +35,7 @@ public class SelectableOponent : MonoBehaviour
     {
         if (_isSelected) return;
         
-        sceneData.SelectedOponent = oponentInfo.ID;
+        sceneData.SelectedOponent = oponentInfo;
         _canDisableColor = false;
         _isSelected = true;
         

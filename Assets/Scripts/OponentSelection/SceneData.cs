@@ -3,5 +3,5 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SceneData", menuName = "Scriptable Objects/SceneData")]
 public class SceneData : ScriptableObject
 {
-    public string SelectedOponent { get; set; }
+    public OponentInfoSO SelectedOponent { get; set; }
 }

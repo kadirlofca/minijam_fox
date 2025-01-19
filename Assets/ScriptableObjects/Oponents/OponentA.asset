@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f71b1cdea46af2fa27b8df5b199e87, type: 3}
   m_Name: OponentA
   m_EditorClassIdentifier: 
+  ID: c7124a21-8332-43d8-ace1-712d3df77568
   OponentName: Mouse
+  OponentSprite: {fileID: 0}
+  PlayerWinChance: 26.1
+  OponentWinChance: 50

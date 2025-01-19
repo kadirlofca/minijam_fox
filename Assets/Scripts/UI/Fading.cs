@@ -13,7 +13,8 @@ public class Fading : MonoBehaviour
 
     private void Awake()
     {
-        StartCoroutine(FadeIn());
+        
+        StartCoroutine(DelayedFadeIn());
     }
 
     private void OnEnable()
@@ -65,5 +66,11 @@ public class Fading : MonoBehaviour
         color.a = 1f; 
 
         _fadeImage.color = color;
+    }
+
+    private IEnumerator DelayedFadeIn()
+    {
+        yield return new WaitForSeconds(0.5f);
+        yield return FadeIn();
     }
 }

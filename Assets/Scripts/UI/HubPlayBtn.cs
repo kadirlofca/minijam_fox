@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -28,7 +29,13 @@ public class HubPlayBtn : MonoBehaviour
 
     public void LoadLevel()
     {
-       SceneManager.LoadScene(levelIndex);
+        StartCoroutine(LoadLevelCoroutine());
+    }
+
+    private IEnumerator LoadLevelCoroutine()
+    {
+        yield return Fading.OnFadeOut?.Invoke();
+        SceneManager.LoadScene(levelIndex);
     }
     
     private void EnableButton()

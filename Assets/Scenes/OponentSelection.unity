@@ -743,7 +743,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8553072850865346513, guid: d6d13e69a858e4aaf9b0a2181233807d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -834,7 +834,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1268657791}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1268657793}
+        m_TargetAssemblyTypeName: HubPlayBtn, Assembly-CSharp
+        m_MethodName: LoadLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1268657791
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -885,7 +897,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 206ecc578c74e5afea0cc7f8502a3f59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelIndex: 1
+  levelIndex: 0
 --- !u!114 &1268657794
 MonoBehaviour:
   m_ObjectHideFlags: 0
