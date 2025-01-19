@@ -8,6 +8,8 @@ public class WonAgainstSO : ScriptableObject
     
     public void AddOponent(OponentInfoSO oponentInfoSO)
     {
+        if(Oponents.Contains(oponentInfoSO)) return;
+        
         Oponents.Add(oponentInfoSO);
     }
 }

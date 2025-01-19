@@ -604,6 +604,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 4334783836991956000, guid: f5cb7c4672bdba449a7d8afcc00434fe, type: 3}
+    - target: {fileID: 7180645032179992843, guid: 61ac664b6af95b64aacaa28c5864e510, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7180645032179992843, guid: 61ac664b6af95b64aacaa28c5864e510, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7180645032179992843, guid: 61ac664b6af95b64aacaa28c5864e510, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7351935831052188386, guid: 61ac664b6af95b64aacaa28c5864e510, type: 3}
       propertyPath: m_Name
       value: BoardPiece_Ally
@@ -760,7 +772,7 @@ Transform:
   m_GameObject: {fileID: 847036722}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.91, y: -6, z: 0}
+  m_LocalPosition: {x: 1.59, y: -0.38, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1772,12 +1784,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -5
-  m_Sprite: {fileID: -1291202924252101130, guid: cc202a48edb0f8c47923f0a1bae98a02, type: 3}
+  m_Sprite: {fileID: -2757671632586673598, guid: 1c309b2799de3923dbecdc8d49dca286, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -1919,6 +1931,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47454813ae49fc04ba6e1c3aee6c0b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _wonAgainst: {fileID: 0}
+  _sceneData: {fileID: 0}
   AllyBoardProgress: 0
   OpponentBoardProgress: 0
 --- !u!4 &1574394384
@@ -2103,6 +2117,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1704343248}
+  - component: {fileID: 1704343249}
   m_Layer: 0
   m_Name: Mouse
   m_TagString: Untagged
@@ -2126,6 +2141,18 @@ Transform:
   - {fileID: 847036723}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1704343249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1704343247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 122f21dbde96ed6af990bcb3209d655d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1732902527
 PrefabInstance:
   m_ObjectHideFlags: 0
