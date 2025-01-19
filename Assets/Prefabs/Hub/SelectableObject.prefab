@@ -245,6 +245,7 @@ MonoBehaviour:
   hoverColor: {r: 0.5223216, g: 0.5223216, b: 0.5223216, a: 1}
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   sceneData: {fileID: 11400000, guid: 09265e23b1abbd8e095a38478118b761, type: 2}
+  selectSound: {fileID: 8300000, guid: 1c913ffc063f10c71aca941f7e950c41, type: 3}
 --- !u!61 &2246603531628593621
 BoxCollider2D:
   m_ObjectHideFlags: 0

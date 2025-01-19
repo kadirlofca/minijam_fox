@@ -9,8 +9,12 @@ public class OponentInfoSO : ScriptableObject
     
     [Space(15)]
     public string OponentName;
-    
-    public Sprite OponentSprite;
+    public float BehaviorDuration = 10;
+    [Space(10)]
+    public Sprite Idle;
+    public Sprite Distracted;
+    public Sprite Suspicious;
+    public Sprite Confrontational;
     
     
     [Space(15)]

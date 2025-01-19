@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd2813ccb5fcaeafdac3595210d4144e, type: 3}
   m_Name: SceneData
   m_EditorClassIdentifier: 
+  SelectedOponent: {fileID: 11400000, guid: 22b801367633e35768a330760c8d2a0e, type: 2}

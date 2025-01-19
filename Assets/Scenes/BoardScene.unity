@@ -1449,10 +1449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Renderer: {fileID: 1283434790}
-  Idle: {fileID: 4723107735738678597, guid: d3bbd02952a3f7240bbeb3bad30a4971, type: 3}
-  Distracted: {fileID: -3897114461166940061, guid: b265e64fad7f8934c9fa7ac307f207f5, type: 3}
-  Suspicious: {fileID: 8998112352109675948, guid: 6c9b051aff0f4f94291129d167a0290f, type: 3}
-  Confrontational: {fileID: 621222158458474870, guid: f698effdf150ef7449379daa90de0966, type: 3}
+  sceneData: {fileID: 11400000, guid: 09265e23b1abbd8e095a38478118b761, type: 2}
   SusLevel: 0
   BehaviorDuration: 2
   CurrentBehavior: 0

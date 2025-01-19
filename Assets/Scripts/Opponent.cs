@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using System.Collections;
+using Random = UnityEngine.Random;
 
 public enum OpponentBehavior
 {
@@ -12,13 +14,13 @@ public enum OpponentBehavior
 public class Opponent : MonoBehaviour
 {
     public SpriteRenderer Renderer;
-    public Sprite Idle;
-    public Sprite Distracted;
-    public Sprite Suspicious;
-    public Sprite Confrontational;
 
+    [SerializeField] private SceneData sceneData;
+
+    private OponentInfoSO oponentInfoSO;
+    
     public float SusLevel = 0;
-    public float BehaviorDuration = 10;
+    
     public OpponentBehavior CurrentBehavior = OpponentBehavior.Idle;
 
     Sprite BehaviorToTexture(OpponentBehavior Behavior)
@@ -26,15 +28,15 @@ public class Opponent : MonoBehaviour
         switch (Behavior)
         {
             case OpponentBehavior.Idle:
-                return Idle;
+                return oponentInfoSO.Idle;
             case OpponentBehavior.Distracted:
-                return Distracted;
+                return oponentInfoSO.Distracted;
             case OpponentBehavior.Suspicious:
-                return Suspicious;
+                return oponentInfoSO.Suspicious;
             case OpponentBehavior.Confrontational:
-                return Confrontational;
+                return oponentInfoSO.Confrontational;
             default:
-                return Idle;
+                return oponentInfoSO.Idle;
         }
     }
 
@@ -68,11 +70,16 @@ public class Opponent : MonoBehaviour
 
     IEnumerator WaitAndBehave()
     {
-        yield return new WaitForSeconds(BehaviorDuration);
+        yield return new WaitForSeconds(oponentInfoSO.BehaviorDuration);
 
         Behave();
 
         StartCoroutine(WaitAndBehave());
+    }
+
+    private void Awake()
+    {
+        oponentInfoSO = sceneData.SelectedOponent;
     }
 
     void Start()
