@@ -1,8 +1,12 @@
-using System.Collections.Specialized;
+using System;
 using UnityEngine;
 
 public class BoardPiece : MonoBehaviour
 {
+    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private Color _normalColor;
+    [SerializeField] private Color _hoverColor;
+    
     [SerializeField]
     public bool side = false;
 
@@ -26,5 +30,15 @@ public class BoardPiece : MonoBehaviour
         transform.localScale = new Vector3(scale, scale, scale);
 
         UpdateBoardState();
+    }
+
+    private void OnMouseEnter()
+    {
+        _spriteRenderer.color = _hoverColor;
+    }
+    
+    private void OnMouseExit()
+    {
+        _spriteRenderer.color = _normalColor;
     }
 }

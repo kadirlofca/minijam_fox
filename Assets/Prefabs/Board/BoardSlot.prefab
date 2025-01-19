@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 8290736955823241996}
   - component: {fileID: 5065362290660167274}
   - component: {fileID: 3930208220001313097}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: BoardSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -135,6 +135,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SlotPosition: {fileID: 728840716468643563}
+  HighlightSprite: {fileID: 0}
+  DefaultSprite: {fileID: 0}
   ProgressValue: 0
   BoardSide: 0
 --- !u!65 &5065362290660167274

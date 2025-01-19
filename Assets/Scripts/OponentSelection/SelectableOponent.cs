@@ -84,7 +84,7 @@ public class SelectableOponent : MonoBehaviour
     private void SetText()
     {
         string text = wonAgainstSO.Oponents.Contains(oponentInfo) ? "You have won against this oponent" : oponentInfo.HasPlayedAgainstPlayer ? "You have lost against this oponent" : "You have never played against this oponent";
-        _text.text = text;
+        _text.text = text + ".";
     }
 
     private void PlaySound()
