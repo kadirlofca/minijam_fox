@@ -59,17 +59,10 @@ public class Player : MonoBehaviour
         {
             if (HoveredBoardSlot && HoveredBoardSlot.BoardSide == HeldBoardPiece.side)
             {
+                // ON PLACED INTO SLOT
                 HeldBoardPiece.transform.position = HoveredBoardSlot.SlotPosition.position;
                 HeldBoardPiece.currentSlot = HoveredBoardSlot;
-
-                if (HeldBoardPiece.side)
-                {
-                    BoardState.Instance.OpponentBoardProgress = HoveredBoardSlot.ProgressValue;
-                }
-                else
-                {
-                    BoardState.Instance.AllyBoardProgress = HoveredBoardSlot.ProgressValue;
-                }
+                HeldBoardPiece.OnPlaced();
             }
             else
             {
