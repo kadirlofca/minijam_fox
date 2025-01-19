@@ -15,7 +15,7 @@ MonoBehaviour:
   ID: c7124a21-8332-43d8-ace1-712d3df77568
   HasPlayedAgainstPlayer: 0
   OponentName: Fox
-  BehaviorDuration: 10
+  BehaviorDuration: 5
   Idle: {fileID: 4723107735738678597, guid: d3bbd02952a3f7240bbeb3bad30a4971, type: 3}
   Distracted: {fileID: -3897114461166940061, guid: b265e64fad7f8934c9fa7ac307f207f5, type: 3}
   Suspicious: {fileID: 8998112352109675948, guid: 6c9b051aff0f4f94291129d167a0290f, type: 3}

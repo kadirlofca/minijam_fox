@@ -9,9 +9,9 @@ public enum CoinTossState
 
 public struct Turn
 {
-    bool side;
-    CoinTossState coinTossResult;
-    int lastProgress;
+    public bool side;
+    public CoinTossState coinTossResult;
+    public int lastProgress;
 }
 
 public class BoardState : MonoBehaviour
@@ -30,5 +30,25 @@ public class BoardState : MonoBehaviour
         }
 
         Instance = this;
+
+        // start from opponent
+        turn.side = true;
+        turn.lastProgress = 0;
+    }
+
+    void OpponentMove()
+    {
+
+    }
+
+    void OpponentTossCoin()
+    {
+    }
+
+    void EndTurn()
+    {
+        turn.side = !turn.side;
+        turn.coinTossResult = CoinTossState.NotTossed;
+        turn.lastProgress = turn.side ? OpponentBoardProgress : AllyBoardProgress;
     }
 }

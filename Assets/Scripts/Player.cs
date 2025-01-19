@@ -44,10 +44,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    void TossCoin()
+    {
+
+    }
+
     public void OnMouseAction(InputAction.CallbackContext context)
     {
         if (context.ReadValueAsButton())
         {
+            if (BoardState.Instance.turn.side == false && BoardState.Instance.turn.coinTossResult == CoinTossState.NotTossed)
+            {
+                TossCoin();
+            }
+
             GrabBoardPiece();
 
             return;
