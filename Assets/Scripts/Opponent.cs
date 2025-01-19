@@ -1,5 +1,7 @@
+using System;
 using UnityEngine;
 using System.Collections;
+using Random = UnityEngine.Random;
 
 public enum OpponentBehavior
 {
@@ -11,20 +13,88 @@ public enum OpponentBehavior
 
 public class Opponent : MonoBehaviour
 {
+    public SpriteRenderer Renderer;
+
+    [SerializeField] private SceneData sceneData;
+
+    private OponentInfoSO oponentInfoSO;
+
     public float SusLevel = 0;
 
-    IEnumerator WaitAndPrint()
+    public OpponentBehavior CurrentBehavior = OpponentBehavior.Idle;
+
+    public Opponent Instance;
+
+    Sprite BehaviorToTexture(OpponentBehavior Behavior)
     {
-        yield return new WaitForSeconds(5);
-        print("WaitAndPrint " + Time.time);
+        switch (Behavior)
+        {
+            case OpponentBehavior.Idle:
+                return oponentInfoSO.Idle;
+            case OpponentBehavior.Distracted:
+                return oponentInfoSO.Distracted;
+            case OpponentBehavior.Suspicious:
+                return oponentInfoSO.Suspicious;
+            case OpponentBehavior.Confrontational:
+                return oponentInfoSO.Confrontational;
+            default:
+                return oponentInfoSO.Idle;
+        }
     }
 
-    IEnumerator Start()
+    void ChangeBehavior(OpponentBehavior NewBehavior)
     {
-        print("Starting " + Time.time);
+        CurrentBehavior = NewBehavior;
+        Renderer.sprite = BehaviorToTexture(NewBehavior);
+    }
 
-        // Start function WaitAndPrint as a coroutine
-        yield return StartCoroutine("WaitAndPrint");
-        print("Done " + Time.time);
+    void Behave()
+    {
+        Debug.Log(Random.Range(0, 100));
+
+        if (Random.Range(0, 1) > 0)
+        {
+        }
+
+        ChangeBehavior(OpponentBehavior.Distracted);
+
+        if (CurrentBehavior == OpponentBehavior.Distracted)
+        {
+
+        }
+        else if (SusLevel > 1)
+        {
+            CurrentBehavior = OpponentBehavior.Suspicious;
+        }
+        else if (SusLevel > 2)
+        {
+            CurrentBehavior = OpponentBehavior.Confrontational;
+        }
+    }
+
+    IEnumerator WaitAndBehave()
+    {
+        yield return new WaitForSeconds(oponentInfoSO.BehaviorDuration);
+
+        Behave();
+
+        StartCoroutine(WaitAndBehave());
+    }
+
+    private void Awake()
+    {
+        oponentInfoSO = sceneData.SelectedOponent;
+
+        if (Instance)
+        {
+            return;
+        }
+
+        Instance = this;
+    }
+
+    void Start()
+    {
+        StartCoroutine(WaitAndBehave());
     }
 }

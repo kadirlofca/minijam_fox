@@ -24,7 +24,7 @@ public class OponentSelectionManager : MonoBehaviour
         _previous = _current;
         _current = oponent;
         
-        HubPlayBtn.OnEnableButton?.Invoke();
+        HubPlayBtn.OnEnableButton?.Invoke(_current.OponentInfo);
         
         if (_previous != null)
         {

@@ -41,7 +41,7 @@ public class CoinToss : MonoBehaviour
      /// </summary>
      private bool PlayerTossCoin()
      {
-          return TossCoin(currentOponent.OponentWinChance);
+          return TossCoin(currentOponent.PlayerWinChance);
      }
 
      bool TossCoin(float winRate)

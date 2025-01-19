@@ -20,8 +20,6 @@ public class Player : MonoBehaviour
         }
 
         Instance = this;
-
-        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
     RaycastHit[] GetGameObjectAtPosition()
@@ -46,10 +44,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    void TossCoin()
+    {
+
+    }
+
     public void OnMouseAction(InputAction.CallbackContext context)
     {
         if (context.ReadValueAsButton())
         {
+            if (BoardState.Instance.turn.side == false && BoardState.Instance.turn.coinTossResult == CoinTossState.NotTossed)
+            {
+                TossCoin();
+            }
+
             GrabBoardPiece();
 
             return;
@@ -59,17 +67,11 @@ public class Player : MonoBehaviour
         {
             if (HoveredBoardSlot && HoveredBoardSlot.BoardSide == HeldBoardPiece.side)
             {
+                // ON PLACED INTO SLOT
+                HoveredBoardSlot.UnHighlight();
                 HeldBoardPiece.transform.position = HoveredBoardSlot.SlotPosition.position;
                 HeldBoardPiece.currentSlot = HoveredBoardSlot;
-
-                if (HeldBoardPiece.side)
-                {
-                    BoardState.Instance.OpponentBoardProgress = HoveredBoardSlot.ProgressValue;
-                }
-                else
-                {
-                    BoardState.Instance.AllyBoardProgress = HoveredBoardSlot.ProgressValue;
-                }
+                HeldBoardPiece.OnPlaced();
             }
             else
             {
@@ -101,12 +103,22 @@ public class Player : MonoBehaviour
             }
         }
 
+        if (HoveredBoardSlot && HoveredBoardSlot != DetectedSlot)
+        {
+            HoveredBoardSlot.UnHighlight();
+        }
+
         HoveredBoardSlot = DetectedSlot;
     }
 
     void Update()
     {
         DetectSlot();
+
+        if (HeldBoardPiece && HoveredBoardSlot && HoveredBoardSlot.BoardSide == HeldBoardPiece.side && HeldBoardPiece)
+        {
+            HoveredBoardSlot.Highlight();
+        }
 
         if (HeldBoardPiece)
         {
