@@ -11,20 +11,72 @@ public enum OpponentBehavior
 
 public class Opponent : MonoBehaviour
 {
-    public float SusLevel = 0;
+    public SpriteRenderer Renderer;
+    public Sprite Idle;
+    public Sprite Distracted;
+    public Sprite Suspicious;
+    public Sprite Confrontational;
 
-    IEnumerator WaitAndPrint()
+    public float SusLevel = 0;
+    public float BehaviorDuration = 10;
+    public OpponentBehavior CurrentBehavior = OpponentBehavior.Idle;
+
+    Sprite BehaviorToTexture(OpponentBehavior Behavior)
     {
-        yield return new WaitForSeconds(5);
-        print("WaitAndPrint " + Time.time);
+        switch (Behavior)
+        {
+            case OpponentBehavior.Idle:
+                return Idle;
+            case OpponentBehavior.Distracted:
+                return Distracted;
+            case OpponentBehavior.Suspicious:
+                return Suspicious;
+            case OpponentBehavior.Confrontational:
+                return Confrontational;
+            default:
+                return Idle;
+        }
     }
 
-    IEnumerator Start()
+    void ChangeBehavior(OpponentBehavior NewBehavior)
     {
-        print("Starting " + Time.time);
+        CurrentBehavior = NewBehavior;
+        Renderer.sprite = BehaviorToTexture(NewBehavior);
+    }
 
-        // Start function WaitAndPrint as a coroutine
-        yield return StartCoroutine("WaitAndPrint");
-        print("Done " + Time.time);
+    void Behave()
+    {
+        if (Random.Range(0, 1) > 0)
+        {
+        }
+
+        ChangeBehavior(OpponentBehavior.Distracted);
+
+        if (CurrentBehavior == OpponentBehavior.Distracted)
+        {
+
+        }
+        else if (SusLevel > 1)
+        {
+            CurrentBehavior = OpponentBehavior.Suspicious;
+        }
+        else if (SusLevel > 2)
+        {
+            CurrentBehavior = OpponentBehavior.Confrontational;
+        }
+    }
+
+    IEnumerator WaitAndBehave()
+    {
+        yield return new WaitForSeconds(BehaviorDuration);
+
+        Behave();
+
+        StartCoroutine(WaitAndBehave());
+    }
+
+    void Start()
+    {
+        StartCoroutine(WaitAndBehave());
     }
 }
