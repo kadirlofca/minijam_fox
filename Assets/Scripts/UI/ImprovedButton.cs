@@ -5,13 +5,17 @@ using UnityEngine.UI;
 
 public class ImprovedButton : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    private Button button;
-
+    [SerializeField] private AudioClip _clickSound;
+    
+    private AudioSource _audioSource;
+    private Button _button;
+   
     private void Awake()
     {
-        button = GetComponent<Button>();
-
-        if (button == null)
+        _button = GetComponent<Button>();
+        _audioSource = GameObject.FindGameObjectWithTag("SFXSource").GetComponent<AudioSource>();
+        
+        if (_button == null)
         {
             Debug.LogError("Button is null");
         }
@@ -19,19 +23,28 @@ public class ImprovedButton : MonoBehaviour, IPointerClickHandler, IPointerEnter
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (!button.interactable) return;
+        if (!_button.interactable) return;
         
+        PlayClickSound();
         Cursor.SetCursor(MouseCursors.Instance.DefaultMouseTexture, Vector2.zero, CursorMode.Auto);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Texture2D mouseCursor = button.interactable ? MouseCursors.Instance.ClickMouseTexture : MouseCursors.Instance.CrossMouseTexture;
+        Texture2D mouseCursor = _button.interactable ? MouseCursors.Instance.ClickMouseTexture : MouseCursors.Instance.CrossMouseTexture;
         Cursor.SetCursor(mouseCursor, Vector2.zero, CursorMode.Auto);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         Cursor.SetCursor(MouseCursors.Instance.DefaultMouseTexture, Vector2.zero, CursorMode.Auto);
+    }
+    
+    private void PlayClickSound()
+    {
+        if (_clickSound != null)
+        {
+            _audioSource.PlayOneShot(_clickSound);
+        }
     }
 }

@@ -17,14 +17,17 @@ public class SelectableOponent : MonoBehaviour
     [SerializeField] Color defaultColor;
 
     [SerializeField] SceneData sceneData;
- 
+    [SerializeField] AudioClip selectSound;
+    
     private SpriteRenderer _spriteRenderer;
+    private AudioSource _audioSource;
 
     private bool _canDisableColor = true;
     private bool _isSelected;
     
     private void Awake()
     {
+        _audioSource = GameObject.FindGameObjectWithTag("SFXSource").GetComponent<AudioSource>();
         canvasObject.SetActive(false);
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _spriteRenderer.color = defaultColor;
@@ -46,6 +49,7 @@ public class SelectableOponent : MonoBehaviour
     {
         if (_isSelected) return;
         
+        PlaySound();
         sceneData.SelectedOponent = oponentInfo;
         _canDisableColor = false;
         _isSelected = true;
@@ -74,5 +78,13 @@ public class SelectableOponent : MonoBehaviour
     {
         string text = wonAgainstSO.Oponents.Contains(oponentInfo) ? "You have won against this oponent" : oponentInfo.HasPlayedAgainstPlayer ? "You have lost against this oponent" : "You have never played against this oponent";
         _text.text = text;
+    }
+
+    private void PlaySound()
+    {
+        if (_audioSource != null )
+        {
+            _audioSource.PlayOneShot(selectSound);
+        }
     }
 }
