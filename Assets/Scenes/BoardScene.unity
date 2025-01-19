@@ -537,6 +537,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6389311703386292405, guid: 9428099ff39d6e948b7ebeeb156872de, type: 3}
   m_PrefabInstance: {fileID: 865341911}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &975848015
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 975848016}
+  - component: {fileID: 975848017}
+  m_Layer: 0
+  m_Name: CoinToss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &975848016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975848015}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.0951614, y: -1.1704457, z: -0.04172928}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &975848017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 975848015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d09442552ceed2b892ed973e9107056, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneData: {fileID: 11400000, guid: 09265e23b1abbd8e095a38478118b761, type: 2}
 --- !u!1001 &1013978071
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1370,3 +1415,4 @@ SceneRoots:
   - {fileID: 388164288}
   - {fileID: 1434876408}
   - {fileID: 1574394384}
+  - {fileID: 975848016}
