@@ -15,5 +15,5 @@ MonoBehaviour:
   ID: c7124a21-8332-43d8-ace1-712d3df77568
   OponentName: Mouse
   OponentSprite: {fileID: 0}
-  PlayerWinChance: 26.1
-  OponentWinChance: 50
+  PlayerWinChance: 20
+  OponentWinChance: 25

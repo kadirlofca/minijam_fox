@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81f71b1cdea46af2fa27b8df5b199e87, type: 3}
   m_Name: OponentB
   m_EditorClassIdentifier: 
+  ID: 8774d66c-6a97-49ef-9766-9dd90cbe285a
   OponentName: Fox
+  OponentSprite: {fileID: 0}
+  PlayerWinChance: 20
+  OponentWinChance: 25

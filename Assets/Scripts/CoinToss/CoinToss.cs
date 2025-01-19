@@ -27,7 +27,7 @@ public class CoinToss : MonoBehaviour
           OnEnemyTossCoin -= EnemyTossCoin;
           OnPlayerTossCoin -= PlayerTossCoin;
      }
-
+     
      /// <summary>
      /// Returns true if the enemy wins
      /// </summary>
