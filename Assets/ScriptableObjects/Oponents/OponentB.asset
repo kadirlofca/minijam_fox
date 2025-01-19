@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: OponentB
   m_EditorClassIdentifier: 
   ID: 8774d66c-6a97-49ef-9766-9dd90cbe285a
+  HasPlayedAgainstPlayer: 1
   OponentName: Fox
   OponentSprite: {fileID: 0}
   PlayerWinChance: 20

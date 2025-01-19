@@ -1,10 +1,16 @@
 using System;
+using TMPro;
 using UnityEngine;
 
 public class SelectableOponent : MonoBehaviour
 {
-    [SerializeField] OponentInfoSO oponentInfo;  
-    [Space(10)] 
+    [SerializeField] OponentInfoSO oponentInfo;
+    [SerializeField] WonAgainstSO wonAgainstSO;
+    
+    [SerializeField] private GameObject canvasObject;
+    [SerializeField] private TextMeshProUGUI _text;
+    
+    [Space(15)] 
     [SerializeField] Color hoverColor;
     [SerializeField] Color defaultColor;
 
@@ -17,14 +23,17 @@ public class SelectableOponent : MonoBehaviour
     
     private void Awake()
     {
+        canvasObject.SetActive(false);
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _spriteRenderer.color = defaultColor;
+        
+      SetText();
     }
 
     private void OnMouseEnter()
     {
         _spriteRenderer.color = hoverColor;
-
+        canvasObject.SetActive(true);
         Texture2D mouseCursor =
             _isSelected ? MouseCursors.Instance.CrossMouseTexture : MouseCursors.Instance.ClickMouseTexture;
         
@@ -45,6 +54,7 @@ public class SelectableOponent : MonoBehaviour
 
     private void OnMouseExit()
     {
+        canvasObject.SetActive(false);
         if (_canDisableColor)
             _spriteRenderer.color = defaultColor;
         
@@ -58,4 +68,9 @@ public class SelectableOponent : MonoBehaviour
         _spriteRenderer.color = defaultColor;
     }
 
+    private void SetText()
+    {
+        string text = wonAgainstSO.Oponents.Contains(oponentInfo) ? "You have won against this oponent" : oponentInfo.HasPlayedAgainstPlayer ? "You have lost against this oponent" : "You have never played against this oponent";
+        _text.text = text;
+    }
 }

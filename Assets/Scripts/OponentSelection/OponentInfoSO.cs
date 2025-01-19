@@ -5,14 +5,16 @@ using UnityEngine;
 public class OponentInfoSO : ScriptableObject
 {
     public string ID;
+    public bool HasPlayedAgainstPlayer;
+    
     [Space(15)]
     public string OponentName;
     
     public Sprite OponentSprite;
     
+    
     [Space(15)]
     [Header("Toss coin settings")]
-    
     [Range(0,100)]
     public float PlayerWinChance = 50;
     [Range(0,100)]
