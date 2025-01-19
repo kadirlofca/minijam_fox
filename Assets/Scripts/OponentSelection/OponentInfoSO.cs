@@ -8,6 +8,8 @@ public class OponentInfoSO : ScriptableObject
     [Space(15)]
     public string OponentName;
     
+    public Sprite OponentSprite;
+    
     private void OnValidate()
     {
         if (string.IsNullOrEmpty(ID)) 
