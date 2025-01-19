@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class SelectableOponent : MonoBehaviour
 {
+    public OponentInfoSO OponentInfo => oponentInfo;
+    
     [SerializeField] OponentInfoSO oponentInfo;
     [SerializeField] WonAgainstSO wonAgainstSO;
     

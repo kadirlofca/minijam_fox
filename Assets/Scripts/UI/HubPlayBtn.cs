@@ -1,15 +1,17 @@
 using System;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class HubPlayBtn : MonoBehaviour
 {
-    public static Action OnEnableButton;
+    public static Action<OponentInfoSO> OnEnableButton;
     
     [SerializeField] private int levelIndex = 1;
-
+    [SerializeField] private TextMeshProUGUI buttonText;
+    
     private Button _button;
     
     private void Awake()
@@ -38,8 +40,9 @@ public class HubPlayBtn : MonoBehaviour
         SceneManager.LoadScene(levelIndex);
     }
     
-    private void EnableButton()
+    private void EnableButton(OponentInfoSO oponentInfoSO)
     {
+        buttonText.text = "Play against " + oponentInfoSO.OponentName;
         _button.interactable = true;
     }
 }
