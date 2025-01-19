@@ -60,6 +60,7 @@ public class Player : MonoBehaviour
             if (HoveredBoardSlot && HoveredBoardSlot.BoardSide == HeldBoardPiece.side)
             {
                 // ON PLACED INTO SLOT
+                HoveredBoardSlot.UnHighlight();
                 HeldBoardPiece.transform.position = HoveredBoardSlot.SlotPosition.position;
                 HeldBoardPiece.currentSlot = HoveredBoardSlot;
                 HeldBoardPiece.OnPlaced();
@@ -94,12 +95,22 @@ public class Player : MonoBehaviour
             }
         }
 
+        if (HoveredBoardSlot && HoveredBoardSlot != DetectedSlot)
+        {
+            HoveredBoardSlot.UnHighlight();
+        }
+
         HoveredBoardSlot = DetectedSlot;
     }
 
     void Update()
     {
         DetectSlot();
+
+        if (HeldBoardPiece && HoveredBoardSlot && HoveredBoardSlot.BoardSide == HeldBoardPiece.side && HeldBoardPiece)
+        {
+            HoveredBoardSlot.Highlight();
+        }
 
         if (HeldBoardPiece)
         {
