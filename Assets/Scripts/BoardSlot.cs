@@ -8,14 +8,6 @@ public class BoardSlot : MonoBehaviour
 {
     [SerializeField]
     public Transform SlotPosition;
-
-    void OnMouseEnter()
-    {
-        Player.Instance.CurrentlyHoveredBoardSlot = this;
-    }
-
-    void OnMouseExit()
-    {
-        Player.Instance.CurrentlyHoveredBoardSlot = null;
-    }
+    public int ProgressValue = 0;
+    public bool BoardSide = false;
 }

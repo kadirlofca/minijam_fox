@@ -131,4 +131,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3914628b91b1444b42f3a68f05b316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentlyHeldBoardPiece: {fileID: 0}
+  cursorTexture: {fileID: 2800000, guid: e1f3c706eb26cf143b251e9120091de8, type: 3}
+  HeldBoardPiece: {fileID: 0}
+  HoveredBoardSlot: {fileID: 0}
