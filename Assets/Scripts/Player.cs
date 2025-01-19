@@ -20,8 +20,6 @@ public class Player : MonoBehaviour
         }
 
         Instance = this;
-
-        Cursor.SetCursor(cursorTexture, Vector2.zero, CursorMode.Auto);
     }
 
     RaycastHit[] GetGameObjectAtPosition()
