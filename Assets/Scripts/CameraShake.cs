@@ -1,16 +1,23 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CameraShake : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
+    [SerializeField] float shakeIntensity = 0.1f; 
+    [SerializeField] float shakeSpeed = 1f;  
+    
+    private Vector3 initialPosition;
 
+    private void Start()
+    {
+        initialPosition = transform.localPosition;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        transform.RotateAround(transform.position, transform.forward, 0.5f);
+        float offsetX = Mathf.PerlinNoise(Time.time * shakeSpeed, 0) * shakeIntensity;
+        float offsetY = Mathf.PerlinNoise(0, Time.time * shakeSpeed) * shakeIntensity;
+        
+        transform.localPosition = initialPosition + new Vector3(offsetX, offsetY, 0);
     }
 }
