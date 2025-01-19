@@ -13,6 +13,9 @@ public class SelectableOponent : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _text;
     
     [Space(15)] 
+    [SerializeField] Sprite highlightedSprite;
+    [SerializeField] Sprite defaultSprite;
+    [Space(15)]
     [SerializeField] Color hoverColor;
     [SerializeField] Color defaultColor;
 
@@ -38,6 +41,8 @@ public class SelectableOponent : MonoBehaviour
     private void OnMouseEnter()
     {
         _spriteRenderer.color = hoverColor;
+        _spriteRenderer.sprite = highlightedSprite;
+        
         canvasObject.SetActive(true);
         Texture2D mouseCursor =
             _isSelected ? MouseCursors.Instance.CrossMouseTexture : MouseCursors.Instance.ClickMouseTexture;
@@ -60,7 +65,9 @@ public class SelectableOponent : MonoBehaviour
 
     private void OnMouseExit()
     {
+        _spriteRenderer.sprite = defaultSprite;
         canvasObject.SetActive(false);
+        
         if (_canDisableColor)
             _spriteRenderer.color = defaultColor;
         
