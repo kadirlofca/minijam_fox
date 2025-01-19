@@ -18,10 +18,12 @@ public class Opponent : MonoBehaviour
     [SerializeField] private SceneData sceneData;
 
     private OponentInfoSO oponentInfoSO;
-    
+
     public float SusLevel = 0;
-    
+
     public OpponentBehavior CurrentBehavior = OpponentBehavior.Idle;
+
+    public Opponent Instance;
 
     Sprite BehaviorToTexture(OpponentBehavior Behavior)
     {
@@ -48,6 +50,8 @@ public class Opponent : MonoBehaviour
 
     void Behave()
     {
+        Debug.Log(Random.Range(0, 100));
+
         if (Random.Range(0, 1) > 0)
         {
         }
@@ -80,6 +84,13 @@ public class Opponent : MonoBehaviour
     private void Awake()
     {
         oponentInfoSO = sceneData.SelectedOponent;
+
+        if (Instance)
+        {
+            return;
+        }
+
+        Instance = this;
     }
 
     void Start()
