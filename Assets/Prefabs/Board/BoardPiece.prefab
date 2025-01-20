@@ -79,7 +79,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 3422920520011319298, guid: 89851649ddf125f42908720a402230f5, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.83396226, g: 0.83396226, b: 0.83396226, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -123,8 +123,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _spriteRenderer: {fileID: 7180645032179992843}
-  _normalColor: {r: 1, g: 1, b: 1, a: 1}
-  _hoverColor: {r: 0.51658833, g: 0.51658833, b: 0.51658833, a: 1}
+  _normalColor: {r: 0.79622644, g: 0.79622644, b: 0.79622644, a: 1}
+  _hoverColor: {r: 1, g: 1, b: 1, a: 1}
   side: 0
   currentSlot: {fileID: 0}
 --- !u!1 &7351935831052188386
