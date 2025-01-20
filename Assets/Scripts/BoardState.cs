@@ -21,7 +21,7 @@ public class BoardState : MonoBehaviour
 
     [SerializeField] private WonAgainstSO _wonAgainst;
     [SerializeField] private SceneData _sceneData;
-    
+
     public int AllyBoardProgress = 0;
     public int OpponentBoardProgress = 0;
     public Turn turn;
@@ -40,22 +40,28 @@ public class BoardState : MonoBehaviour
         turn.lastProgress = 0;
     }
 
-    void OpponentMove()
-    {
-
-    }
-
-    void OpponentTossCoin()
-    {
-    }
-
-    void EndTurn()
+    public void EndTurn()
     {
         turn.side = !turn.side;
         turn.coinTossResult = CoinTossState.NotTossed;
-        turn.lastProgress = turn.side ? OpponentBoardProgress : AllyBoardProgress;
+
+        // if winning condition
+        if (AllyBoardProgress == 3 || OpponentBoardProgress == 3)
+        {
+            if (Opponent.Instance.CurrentBehavior == OpponentBehavior.Confrontational)
+            {
+                SceneManager.LoadScene(1);
+            }
+
+            if (AllyBoardProgress == 3)
+            {
+                PlayerWon();
+                CheckWhereToLoad();
+
+            }
+        }
     }
-    
+
     void CheckWhereToLoad()
     {
         // Switch the number for the amount of available opponents!!

@@ -7,10 +7,13 @@ public class Player : MonoBehaviour
     [SerializeField]
     public Texture2D cursorTexture;
 
+    public CoinTossAnimation tossAnim;
+
     public BoardPiece HeldBoardPiece;
     public BoardSlot HoveredBoardSlot;
     public static Player Instance;
     Vector3 DragOffset;
+    public HandAnimation handAnim;
 
     void Awake()
     {
@@ -46,19 +49,22 @@ public class Player : MonoBehaviour
 
     void TossCoin()
     {
-
+        tossAnim.Reset();
+        handAnim.Reset();
+        handAnim.StartAnim();
+        tossAnim.Toss();
     }
 
     public void OnMouseAction(InputAction.CallbackContext context)
     {
         if (context.ReadValueAsButton())
         {
-            if (BoardState.Instance.turn.side == false && BoardState.Instance.turn.coinTossResult == CoinTossState.NotTossed)
+            GrabBoardPiece();
+
+            if (!HeldBoardPiece && BoardState.Instance.turn.side == false && BoardState.Instance.turn.coinTossResult == CoinTossState.NotTossed)
             {
                 TossCoin();
             }
-
-            GrabBoardPiece();
 
             return;
         }
@@ -68,10 +74,29 @@ public class Player : MonoBehaviour
             if (HoveredBoardSlot && HoveredBoardSlot.BoardSide == HeldBoardPiece.side)
             {
                 // ON PLACED INTO SLOT
+                int oldProgress = HeldBoardPiece.currentSlot ? HeldBoardPiece.currentSlot.ProgressValue : 0;
                 HoveredBoardSlot.UnHighlight();
                 HeldBoardPiece.transform.position = HoveredBoardSlot.SlotPosition.position;
                 HeldBoardPiece.currentSlot = HoveredBoardSlot;
                 HeldBoardPiece.OnPlaced();
+
+                if (Opponent.Instance.CurrentBehavior != OpponentBehavior.Distracted)
+                {
+                    if (HeldBoardPiece.currentSlot.ProgressValue > oldProgress && Opponent.Instance.lastKnownAllyCoinState != CoinTossState.Forward)
+                    {
+                        Opponent.Instance.SusLevel += 1f;
+                    }
+                }
+
+                if (!(oldProgress == HeldBoardPiece.currentSlot.ProgressValue) && (HeldBoardPiece.side || BoardState.Instance.turn.side || BoardState.Instance.turn.coinTossResult == CoinTossState.NotTossed))
+                {
+                    Opponent.Instance.SusLevel += 1f;
+                }
+
+                if (!BoardState.Instance.turn.side && BoardState.Instance.turn.coinTossResult != CoinTossState.NotTossed)
+                {
+                    BoardState.Instance.EndTurn();
+                }
             }
             else
             {

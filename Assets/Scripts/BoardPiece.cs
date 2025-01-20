@@ -6,7 +6,9 @@ public class BoardPiece : MonoBehaviour
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Color _normalColor;
     [SerializeField] private Color _hoverColor;
-    
+
+    public AudioSource audio;
+
     [SerializeField]
     public bool side = false;
 
@@ -29,6 +31,8 @@ public class BoardPiece : MonoBehaviour
         float scale = side ? (currentSlot.ProgressValue * 0.1f) + 0.6f : (currentSlot.ProgressValue * -0.1f) + 1f;
         transform.localScale = new Vector3(scale, scale, scale);
 
+        audio.Play();
+
         UpdateBoardState();
     }
 
@@ -36,7 +40,7 @@ public class BoardPiece : MonoBehaviour
     {
         _spriteRenderer.color = _hoverColor;
     }
-    
+
     private void OnMouseExit()
     {
         _spriteRenderer.color = _normalColor;
